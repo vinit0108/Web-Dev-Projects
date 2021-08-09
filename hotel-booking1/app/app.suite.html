@@ -1,0 +1,66 @@
+<div class="container" style="padding-top:50px;">
+    
+    <h2 style="text-align:center;">Suite Booking</h2>
+
+    <form class="form-horizontal" action="" method="post" style="padding-top:50px;">
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="name">Name:</label>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)]="name" class="form-control" id="name" placeholder="Enter name" name="name" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="age">Age:</label>
+            <div class="col-sm-6">          
+                <input type="number" class="form-control" [(ngModel)]="age" id="age" placeholder="Enter Your Age" name="age">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="id">Id proof:</label>
+            <div class="col-sm-6">          
+                <input type="text" class="form-control" [(ngModel)]="id" id="id" placeholder="Enter Aadhaar Number" name="id">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="adults">No. of Adults:</label>
+            <div class="col-sm-6">          
+            <input type="number" class="form-control" [(ngModel)]="adults" id="adults" name="adults" min="1">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="children">No. of Children:</label>
+            <div class="col-sm-6">          
+                <input type="number" class="form-control" [(ngModel)]="children" id="children" name="children" min="0">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="date">Check-in date:</label>
+            <div class="col-sm-6">          
+                <input type="date" class="form-control" [(ngModel)]="checkIn" id="date" name="date" placeholder="Select Date">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="days">No. of Days:</label>
+            <div class="col-sm-6">          
+                <input type="number" class="form-control" [(ngModel)]="days" id="days" name="days" min="1">
+            </div>
+        </div>
+
+
+        <div *ngIf="adults>0 || children>0 " class="form-group">
+            <label *ngIf="compute()" class="control-label col-sm-3" for="price">Price of Your Room:</label>
+            <div class="col-sm-6">          
+                <input type="number" class="form-control" [(ngModel)]="price" id="price" name="price" readonly>
+            </div>
+        </div>
+        
+        
+        <div class="form-group">        
+            <div class="col-sm-offset-3 col-sm-10">
+                <button type="submit" class="btn btn-success" name="submit" (click)="book()">Book</button>
+            </div>
+        </div>
+    </form>
+</div>
